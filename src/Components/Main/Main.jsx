@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { mileStones, awards } from './data';
+import image from '../../assets/img/banker.png'
+import image2 from '../../assets/img/benefactor.png'
+import './Main.scss';
 
 export default () => {
   console.log(mileStones)
@@ -19,25 +22,31 @@ export default () => {
     }
   }
 
+
   return(
     <div>
       <button onClick={Randomizer}>Randomizer</button>
+
       <div>
         {!showContent && <h1>Generate</h1>}
-        <div className="container">
-          <div className="milestones">
-            <h4>Milestones</h4>
+        <div>
+          <h2 className="title">Milestones</h2>
+          <div className="milestones container">
             {
               showContent && randomedMileStones.map(item =>
-                <div key={item.id}>{item.name}</div>
+                <div key={item.id} className="item">
+                  <h4>{item.name}</h4>
+                </div>
               )
             }
           </div>
-          <div className="awards">
-            <h4>Awards</h4>
+          <h2 className="title">Awards</h2>
+          <div className="awards container">
             {
               showContent && randomedAwards.map(item =>
-                <div key={item.id}>{item.name}</div>
+                <div key={item.id} className="item">
+                  <h4>{item.name}</h4>
+                </div>
               )
             }
           </div>
